@@ -34,8 +34,8 @@ local function safeCall(func, ...)
 end
 
 -- UI Window
-local window = library:AddWindow("Pirlo script", {
-    main_color = local rojo = Color3.fromRGB(255, 0, 0),
+local window = library:AddWindow("RUDY MUCK HUB | BY MONARCA", {
+    main_color = local verde oscuro= Color3.fromRGB(255, 0, 0),
     min_size = Vector2.new(600, 650),
     can_resize = true,
 })
