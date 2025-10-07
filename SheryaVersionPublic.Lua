@@ -35,7 +35,7 @@ end
 
 -- UI Window
 local window = library:AddWindow("RUDY MUCK HUB | BY MONARCA", {
-    main_color = local verde oscuro= Color3.fromRGB(255, 0, 0),
+    main_color = Color3.fromRGB(85, 107, 47),
     min_size = Vector2.new(600, 650),
     can_resize = true,
 })
