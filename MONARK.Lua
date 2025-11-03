@@ -4,7 +4,7 @@ local LocalPlayer = Players.LocalPlayer
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/memejames/elerium-v2-ui-library/main/Library", true))()
 
 -- VENTANA PRINCIPAL
-local window = library:AddWindow("KOS CLAN || PAID", {
+local window = library:AddWindow("MONARK|| PAID", {
     main_color = Color3.fromRGB(80, 0, 130), -- dark purple
     min_size = Vector2.new(610, 830),
     can_resize = false,
@@ -4345,4 +4345,5 @@ Gift:AddButton(
 local Credits = window:AddTab("Credits")
 
 Credits:AddLabel("Made by Kio")
+
 Credits:AddLabel("Made by Kio")
