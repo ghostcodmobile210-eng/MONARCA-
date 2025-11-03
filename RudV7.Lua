@@ -1,6 +1,6 @@
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/YoshiroScripts/Wspwsp/refs/heads/main/Decode", true))()
 
-local window = library:AddWindow("Wncy | PUBLIC VERSION", {
+local window = library:AddWindow("RUDYMUCK V5| PAID VERSION", {
     main_color = Color3.fromRGB(0, 0, 139),
     min_size = Vector2.new(700, 700),
     can_resize = true,
@@ -1935,5 +1935,6 @@ Credits:AddLabel(" ").TextSize = 30
 Credits:AddLabel("Join My Discord Server").TextSize = 30
 
 Credits:AddLabel(" ").TextSize = 30
+
 
 Credits:AddLabel("Wency | Wncy").TextSize = 30
