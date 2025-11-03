@@ -1,6 +1,6 @@
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/0o0o0o0o0o0o0o0o0o0o0o0o/0o0o0o0o/refs/heads/main/Muscle%20Legends%20V2%20Lib", true))()
 
-local window = library:AddWindow("Kavz V2", {
+local window = library:AddWindow("RudyMuck V4", {
     main_color = Color3.fromRGB(0, 0, 0), -- Color
     min_size = Vector2.new(470, 470), -- Size of the GUI
     can_resize = false,
