@@ -3,8 +3,8 @@ local SaveManager = loadstring(game:HttpGetAsync("https://raw.githubusercontent.
 local InterfaceManager = loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/ActualMasterOogway/Fluent-Renewed/master/Addons/InterfaceManager.luau"))()
 
 local Window = Library:CreateWindow{
-    Title = "SLH Private Script",
-    SubTitle = "By skidder Yamo",
+    Title = "Monarca Private Script",
+    SubTitle = "By PapiMonark",
     TabWidth = 125,
     Size = UDim2.fromOffset(830, 525),
     Resize = true,
