@@ -19,7 +19,7 @@ if success and whitelist then
 end
 
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/CAXAP26BKyCH/library/refs/heads/main/Uilibrary"))()
-local Window = Library:AddWindow("Doca V1 | Paid Version", {
+local Window = Library:AddWindow("MONARKxAleXx | Paid Version", {
     main_color = Color3.fromRGB(255, 0, 0),
     min_size = Vector2.new(500, 600),
     can_resize = true
