@@ -4,7 +4,7 @@ local LocalPlayer = Players.LocalPlayer
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/memejames/elerium-v2-ui-library/main/Library", true))()
 
 -- VENTANA PRINCIPAL
-local window = library:AddWindow("MONARK|| PAID", {
+local window = library:AddWindow("Habibi| PAID", {
     main_color = Color3.fromRGB(80, 0, 130), -- dark purple
     min_size = Vector2.new(610, 830),
     can_resize = false,
@@ -31,7 +31,7 @@ local ROCK_NAME = "Rock5M"
 local PROTEIN_EGG_NAME = "ProteinEgg"
 local PROTEIN_EGG_INTERVAL = 30 * 60 -- 30 min
 local REPS_PER_CYCLE = 180
-local REP_DELAY = 0.01
+local REP_DELAY = 0.1
 local ROCK_INTERVAL = 1
 local MAX_PING = 1100
 
@@ -264,7 +264,7 @@ AutoFarm:AddSwitch("Anti AFK", function(state)
         uselesslabelone.Position = UDim2.new(0.3,0,0,0)
         uselesslabelone.Size = UDim2.new(0,95,0,24)
         uselesslabelone.Font = Enum.Font.SourceSans
-        uselesslabelone.Text = "Anti Afk sacado de chat gpt de rafaelÃƒÂ°Ã…Â¸Ã‹Å“Ã¢â‚¬Å¡"
+        uselesslabelone.Text = "Anti afk monarca"
         uselesslabelone.TextColor3 = Color3.fromRGB(255,255,255)
         uselesslabelone.TextSize = 14
 
@@ -4344,6 +4344,7 @@ Gift:AddButton(
 
 local Credits = window:AddTab("Credits")
 
-Credits:AddLabel("Made by Kio")
+Credits:AddLabel("Hecho por Monark")
 
-Credits:AddLabel("Made by Kio")
+Credits:AddLabel("Para:Mohamed L")
+
