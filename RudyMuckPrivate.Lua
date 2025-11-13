@@ -16,7 +16,7 @@ local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/SadOz
 local player = game.Players.LocalPlayer
 local displayName = player.DisplayName or player.Name
 
-local window = library:AddWindow("👺RudyMuck👺 | By MONARK | - Bienvenido " .. displayName, {
+local window = library:AddWindow("MCL Prívate to Brothers| - Bienvenido " .. displayName, {
     main_color = Color3.fromRGB(0, 0, 0),
     min_size = Vector2.new(650, 870),
     can_resize = false,
@@ -4503,10 +4503,10 @@ local Credits = window:AddTab("Credits")
 Credits:AddLabel("Paid Versión")
 Credits:AddLabel("Los quiero mucho chicos")
 Credits:AddLabel("Son los mejores")
-Credits:AddLabel("H3LL top")
+Credits:AddLabel("MCL top")
 Credits:AddLabel("Script by:")
-Credits:AddLabel("Monarca")
-Credits:AddLabel("CPirlo")
-Credits:AddLabel("King")
-Credits:AddLabel("Dilan")
-Credits:AddLabel("Andre")
+Credits:AddLabel("Monarca💪🏻")
+Credits:AddLabel("PirloKing💪🏻")
+Credits:AddLabel("King bb💪🏻")
+Credits:AddLabel("Dilan my lady💪🏻")
+Credits:AddLabel("Andre🤭💪🏻")
