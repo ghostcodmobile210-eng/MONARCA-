@@ -16,7 +16,7 @@ local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/SadOz
 local player = game.Players.LocalPlayer
 local displayName = player.DisplayName or player.Name
 
-local window = library:AddWindow("MCL Prívate to Brothers| - Bienvenido " .. displayName, {
+local window = library:AddWindow("MCL for Brothers| - Bienvenido " .. displayName, {
     main_color = Color3.fromRGB(0, 0, 0),
     min_size = Vector2.new(650, 870),
     can_resize = false,
