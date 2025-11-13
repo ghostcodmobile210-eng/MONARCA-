@@ -16,8 +16,8 @@ local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/SadOz
 local player = game.Players.LocalPlayer
 local displayName = player.DisplayName or player.Name
 
-local window = library:AddWindow("🦸🏼‍♂️SuperNova Hub By Johan🦸🏼‍♂️ Cracked By ZTX | - Bienvenido " .. displayName, {
-    main_color = Color3.fromRGB(255, 212, 42),
+local window = library:AddWindow("🦸🏼‍♂️RudyMuck🦸🏼‍♂️ | By MONARK | - Bienvenido " .. displayName, {
+    main_color = Color3.fromRGB(0, 0, 0),
     min_size = Vector2.new(650, 870),
     can_resize = false,
 })
@@ -852,7 +852,7 @@ autoEquipToolsFolder:AddSwitch("Fast Tools", function(Value)
     _G.FastTools = Value
     
     local toolSettings = {
-        {"Punch", "attackTime", Value and 0 or 0.35},
+        {"Punch", "attackTime", Value and 0 or 0.10},
         {"Ground Slam", "attackTime", Value and 0 or 6},
         {"Stomp", "attackTime", Value and 0 or 7},
         {"Handstands", "repTime", Value and 0 or 1},
@@ -4500,12 +4500,13 @@ end)
 
 local Credits = window:AddTab("Credits")
 
-Credits:AddLabel("Paid Versión By Johan Cracked By ZTX")
-Credits:AddLabel("Tiktok:Muscle Legends Free Cracked Scripts")
-Credits:AddLabel("Discord:Donna.ltc")
-Credits:AddLabel("Sigueme en esas cuentas para más actualiciones superOps")
-Credits:AddLabel("Próxima actualización:")
-Credits:AddLabel("Fecha:01/01/2026☠️👹")
-Credits:AddLabel("Comparte a tus amigos el script para que lo compren")
-Credits:AddLabel("Gracias por comprar el script SuperNova")
-Credits:AddLabel("Diviertete🥰")
+Credits:AddLabel("Paid Versión")
+Credits:AddLabel("Los quiero mucho chicos")
+Credits:AddLabel("Son los mejores")
+Credits:AddLabel("H3LL top")
+Credits:AddLabel("Script by:")
+Credits:AddLabel("Monarca")
+Credits:AddLabel("CPirlo")
+Credits:AddLabel("King")
+Credits:AddLabel("Dilan")
+Credits:AddLabel("Andre")
