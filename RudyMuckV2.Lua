@@ -3,13 +3,16 @@
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
 
+local player = game.Players.LocalPlayer
+local displayName = player.DisplayName or player.Name
+
 
 -- CARGA DE LIBRERÍA
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/rafael25ic-blip/phoenix-cracked/refs/heads/main/Pheonix%20Private%20Librerya"))()
 
 -- VENTANA PRINCIPAL
-local window = library:AddWindow("⚠️ Toxic PAID V2 | Cracked by Alejandro ⚠️", {
-    main_color = Color3.fromRGB(34, 56, 34), 
+local window = library:AddWindow("MCL Firends Private"..dislpayName, {
+    main_color = Color3.fromRGB(0, 0, 0), 
     min_size = Vector2.new(600, 820),
     can_resize = false,
 })
@@ -268,7 +271,7 @@ AutoFarm:AddSwitch("Anti AFK", function(state)
         uselesslabelone.Position = UDim2.new(0.3,0,0,0)
         uselesslabelone.Size = UDim2.new(0,95,0,24)
         uselesslabelone.Font = Enum.Font.SourceSans
-        uselesslabelone.Text = "Anti Afk sacado de chat gpt de rafael😂"
+        uselesslabelone.Text = "Anti Afk prívate MCL"
         uselesslabelone.TextColor3 = Color3.fromRGB(255,255,255)
         uselesslabelone.TextSize = 14
 
@@ -1648,7 +1651,7 @@ FolderDurabilidad:AddButton("Calculate Durability", function()
     end
 end)
 
-local Killer = window:AddTab("Kills")
+local Killer = window:AddTab("Kills MCL")
 
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
@@ -2023,7 +2026,7 @@ local button = Killer:AddButton("Remove Punch Anim", function()
                     tool:SetAttribute("ActivatedOverride", true)
 
                     local connection = tool.Activated:Connect(function()
-                        task.wait(0.05)
+                        task.wait(0.01)
 
                         local char = game.Players.LocalPlayer.Character
                         if char and char:FindFirstChild("Humanoid") then
@@ -4632,11 +4635,12 @@ Gift:AddButton(
 
 local Credits = window:AddTab("Credits")
 
-Credits:AddLabel("Toxic Paid V2 | Cracked")
-Credits:AddLabel("Script Desofuscado by Alejandro and Jesus my friend 🫂")
-Credits:AddLabel("aprendan a hacer Scripts sin chat gpt")
-Credits:AddLabel("MVX basura , ni Script saben hacer🔥")
-Credits:AddLabel("JASSON y Rafa y king, me pelan toda la verga")
-Credits:AddLabel("Álamo 137, Flores magon, 45417 Tonalá, Jalisco México, bonita casa")
-Credits:AddLabel("Rafael íñiguez castro ") 
-Credits:AddLabel("Se te invita que ofrescas una disculpa publica, asi mi ataque, disminuyera")
+Credits:AddLabel("MCL prívate for brothers")
+Credits:AddLabel("Script para mis mejores amigos 🫂")
+Credits:AddLabel("Espero y sea de su agrado")
+Credits:AddLabel("MVX basura")
+Credits:AddLabel("King,Dilan,Pirlo,Andre Los quiero mucho chicos")
+Credits:AddLabel("MCL on top")
+Credits:AddLabel("Que nuestra amistad sea para siempre") 
+
+Credits:AddLabel("Somos los mejores")
