@@ -3,12 +3,12 @@
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
 
-local player = game.Players.LocalPlayer
-local displayName = player.DisplayName or player.Name
-
 
 -- CARGA DE LIBRERÍA
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/rafael25ic-blip/phoenix-cracked/refs/heads/main/Pheonix%20Private%20Librerya"))()
+
+local player = game.Players.LocalPlayer
+local displayName = player.DisplayName or player.Name
 
 -- VENTANA PRINCIPAL
 local window = library:AddWindow("MCL Firends Private"..dislpayName, {
@@ -4644,3 +4644,4 @@ Credits:AddLabel("MCL on top")
 Credits:AddLabel("Que nuestra amistad sea para siempre") 
 
 Credits:AddLabel("Somos los mejores")
+
