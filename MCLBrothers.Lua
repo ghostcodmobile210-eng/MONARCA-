@@ -3,9 +3,12 @@ local LocalPlayer = Players.LocalPlayer
 
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/memejames/elerium-v2-ui-library/main/Library", true))()
 
+local player = game.Players.LocalPlayer
+local displayName = player.DisplayName or player.Name
+
 -- VENTANA PRINCIPAL
-local window = library:AddWindow("KOS CLAN || PAID", {
-    main_color = Color3.fromRGB(80, 0, 130), -- dark purple
+local window = library:AddWindow("MCL Brothes | Bienvenido Hermoso".. displayName, {
+    main_color = Color3.fromRGB(0, 0, 0),
     min_size = Vector2.new(610, 830),
     can_resize = false,
 })
@@ -264,7 +267,7 @@ AutoFarm:AddSwitch("Anti AFK", function(state)
         uselesslabelone.Position = UDim2.new(0.3,0,0,0)
         uselesslabelone.Size = UDim2.new(0,95,0,24)
         uselesslabelone.Font = Enum.Font.SourceSans
-        uselesslabelone.Text = "Anti Afk sacado de chat gpt de rafaelÃƒÂ°Ã…Â¸Ã‹Å“Ã¢â‚¬Å¡"
+        uselesslabelone.Text = "Anti Afk Brohters"
         uselesslabelone.TextColor3 = Color3.fromRGB(255,255,255)
         uselesslabelone.TextSize = 14
 
@@ -4344,5 +4347,6 @@ Gift:AddButton(
 
 local Credits = window:AddTab("Credits")
 
-Credits:AddLabel("Made by Kio")
-Credits:AddLabel("Made by Kio")
+Credits:AddLabel("Made by Monarca")
+
+Credits:AddLabel("Los amo chicos")
