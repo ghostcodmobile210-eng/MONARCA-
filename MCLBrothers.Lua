@@ -7,7 +7,7 @@ local player = game.Players.LocalPlayer
 local displayName = player.DisplayName or player.Name
 
 -- VENTANA PRINCIPAL
-local window = library:AddWindow("MCL Brothes | Bienvenido Hermoso".. displayName, {
+local window = library:AddWindow("MCL Brothes | Bienvenido Hermoso ".. displayName, {
     main_color = Color3.fromRGB(0, 0, 0),
     min_size = Vector2.new(610, 830),
     can_resize = false,
@@ -4350,3 +4350,4 @@ local Credits = window:AddTab("Credits")
 Credits:AddLabel("Made by Monarca")
 
 Credits:AddLabel("Los amo chicos")
+
