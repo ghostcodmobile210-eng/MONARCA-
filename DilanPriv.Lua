@@ -9,7 +9,7 @@ local Whitelist = {
 local player = game.Players.LocalPlayer
 
 if not Whitelist[player.UserId] then
-    player:Kick("❌ No estás autorizado para usar este script privado.")
+    player:Kick("Que pendejo por no tener whitelist")
     return
 else
     print("✔ Acceso autorizado: " .. player.Name)
