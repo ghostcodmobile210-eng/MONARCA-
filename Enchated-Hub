@@ -1,0 +1,755 @@
+-- Enchanted Hub - Muscle Legends
+-- Discord: discord.gg/25ms
+
+local genv = getgenv()
+local fenv = getfenv()
+
+-- GUI Principal
+local mainGui = Instance.new("ScreenGui")
+mainGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+mainGui.Name = "EnchantedHubGUI"
+
+-- Janela Principal
+local mainFrame = Instance.new("Frame")
+mainFrame.Size = UDim2.new(0, 200, 0, 100)
+mainFrame.Position = UDim2.new(0.5, -100, 0.5, -50)
+mainFrame.BackgroundColor3 = Color3.new(1, 1, 1)
+mainFrame.Parent = mainGui
+
+-- Título
+local titleLabel = Instance.new("TextLabel")
+titleLabel.Size = UDim2.new(1, 0, 0, 20)
+titleLabel.Position = UDim2.new(0, 0, 0, -20)
+titleLabel.Text = "Key System - EH"
+titleLabel.TextColor3 = Color3.new(1, 1, 1)
+titleLabel.BackgroundColor3 = Color3.new(0, 0, 0)
+titleLabel.Parent = mainFrame
+
+-- Eventos do Título (Arrastar Janela)
+local dragging = false
+local dragInput, dragStart, startPos
+
+titleLabel.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 then
+        dragging = true
+        dragStart = input.Position
+        startPos = mainFrame.Position
+        
+        input.Changed:Connect(function()
+            if input.UserInputState == Enum.UserInputState.End then
+                dragging = false
+            end
+        end)
+    end
+end)
+
+titleLabel.InputChanged:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseMovement then
+        dragInput = input
+    end
+end)
+
+titleLabel.InputEnded:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 then
+        dragging = false
+    end
+end)
+
+game:GetService("UserInputService").InputChanged:Connect(function(input)
+    if dragging and input == dragInput then
+        local delta = input.Position - dragStart
+        mainFrame.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+    end
+end)
+
+-- Campo de Entrada da Chave
+local keyTextBox = Instance.new("TextBox")
+keyTextBox.Size = UDim2.new(1, 0, 0.5, 0)
+keyTextBox.Position = UDim2.new(0, 0, 0, 0)
+keyTextBox.Text = "Enter the Key"
+keyTextBox.TextColor3 = Color3.new(0, 0, 0)
+keyTextBox.BackgroundTransparency = 0.5
+keyTextBox.BackgroundColor3 = Color3.new(1, 1, 1)
+keyTextBox.TextWrapped = true
+keyTextBox.Parent = mainFrame
+
+-- Botão Enviar
+local submitButton = Instance.new("TextButton")
+submitButton.Size = UDim2.new(0.5, 0, 0.5, 0)
+submitButton.Position = UDim2.new(0, 0, 0.5, 0)
+submitButton.Text = "Submit"
+submitButton.Parent = mainFrame
+
+-- Botão Fechar
+local closeButton = Instance.new("TextButton")
+closeButton.Size = UDim2.new(0, 20, 0, 20)
+closeButton.Position = UDim2.new(1, -20, 0, 0)
+closeButton.Text = "X"
+closeButton.TextColor3 = Color3.new(1, 1, 1)
+closeButton.BackgroundColor3 = Color3.new(1, 0, 0)
+closeButton.Parent = mainFrame
+
+closeButton.MouseButton1Click:Connect(function()
+    mainGui:Destroy()
+end)
+
+-- Botão Obter Chave
+local getKeyButton = Instance.new("TextButton")
+getKeyButton.Size = UDim2.new(0.5, 0, 0.5, 0)
+getKeyButton.Position = UDim2.new(0.5, 0, 0.5, 0)
+getKeyButton.Text = "Get Key"
+getKeyButton.Parent = mainFrame
+
+-- Função Principal ao Enviar Chave
+submitButton.MouseButton1Click:Connect(function()
+    if keyTextBox.Text == "iblameaabis" then
+        mainGui:Destroy()
+        
+        -- Carregar Biblioteca de UI
+        local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/iblameaabis/Ililililililililililililil/refs/heads/main/W%20UI", true))()
+        
+        -- Criar Janela Principal
+        local mainWindow = library:AddWindow("Enchanted Hub | Muscle Legends", {
+            min_size = Vector2.new(700, 1500),
+            can_resize = false,
+            main_color = Color3.fromRGB(0, 0, 0),
+        })
+        
+        -- Aba: Introdução
+        local introTab = mainWindow:AddTab("Introduction")
+        introTab:Show()
+        
+        local ownerLabel = introTab:AddLabel("Owner of Enchanted Hub is iblamaaabis")
+        ownerLabel.TextSize = 22
+        
+        local creditsLabel = introTab:AddLabel("The Credits Goes to iblameaaabis For making the script")
+        creditsLabel.TextSize = 22
+        
+        local scrollLabel = introTab:AddLabel("Scroll through the tabs to see more tabs")
+        scrollLabel.TextSize = 22
+        
+        local znvLabel = introTab:AddLabel("ZNV On Top")
+        znvLabel.TextSize = 22
+        
+        introTab:AddButton("AutoLiftGamepass", function()
+            local gamepassIds = game:GetService("ReplicatedStorage").gamepassIds
+            local player = game:GetService("Players").LocalPlayer
+            
+            for _, gamepass in pairs(gamepassIds:GetChildren()) do
+                -- Código para automação de gamepasses
+                warn("Gamepass automation not implemented")
+            end
+        end)
+        
+        -- Aba: Rebirth
+        local rebirthTab = mainWindow:AddTab("Rebirthing")
+        rebirthTab:Show()
+        
+        local autoStrengthSwitch = rebirthTab:AddSwitch("Auto Strength", function(state)
+            fenv.isAutoStrength = state
+            local player = game.Players.LocalPlayer
+            warn("Auto Strength feature not fully implemented")
+        end)
+        autoStrengthSwitch:Set(false)
+        
+        local autoSizeSwitch = rebirthTab:AddSwitch("Auto Set Size 2", function(state)
+            fenv.sizeSpam = state
+            warn("Auto Size feature not fully implemented")
+        end)
+        autoSizeSwitch:Set(false)
+        
+        local lockPositionSwitch = rebirthTab:AddSwitch("Lock Position", function(state)
+            fenv.lockPosition = state
+            local char = game.Players.LocalPlayer.Character
+            warn("Lock Position feature not fully implemented")
+        end)
+        lockPositionSwitch:Set(false)
+        
+        rebirthTab:AddSwitch("Auto Teleport to King", function(state)
+            warn("Auto Teleport to King feature not implemented")
+        end)
+        
+        rebirthTab:AddSwitch("Auto Rebirth (Infinite)", function(state)
+            warn("Auto Rebirth feature not implemented")
+        end)
+        
+        rebirthTab:AddTextBox("Rebirth Stop Point", function(text)
+            fenv.rebirthStopPoint = tonumber(text) or 0
+        end)
+        
+        rebirthTab:AddSwitch("Rebirth Until Stop Point", function(state)
+            warn("Rebirth Until Stop Point feature not implemented")
+        end)
+        
+        local fastRebirthLabel = rebirthTab:AddLabel("Fast Rebirth:")
+        fastRebirthLabel.TextSize = 22
+        
+        rebirthTab:AddSwitch("Fast Rebirth (Required 7 New Packs)", function(state)
+            fenv.fastRebirth = state
+            warn("Fast Rebirth feature not implemented")
+        end)
+        
+        local warningLabel = rebirthTab:AddLabel("WARNING: Do Not Click The Button Of Fast Rebirth Without Having 7 Packs!")
+        warningLabel.TextSize = 19
+        
+        -- Aba: Teleport
+        local teleportTab = mainWindow:AddTab("Teleport")
+        teleportTab:Show()
+        
+        -- Coordenadas das Ilhas
+        local islandLocations = {
+            ["Tiny Island"] = CFrame.new(-39.091819763184, 5.9991278648376, 1886.1307373047),
+            ["Frost Island"] = CFrame.new(-2623.0222167969, 5.8457322120667, -409.07333374023),
+            ["Mythical Island"] = CFrame.new(2250.7780761719, 5.8448519706726, 1073.2266845703),
+            ["Infernal Island"] = CFrame.new(-6758.9638671875, 5.8457460403442, -1284.9187011719),
+            ["Legend Island"] = CFrame.new(4603.2817382812, 989.99841308594, -3897.8657226562),
+            ["Muscle King"] = CFrame.new(-8625.9287109375, 15.69575881958, -5730.4721679688),
+            ["Ancient Jungle Island"] = CFrame.new(-8642.2529296875, 6.2755088806152, 2380.5065917969)
+        }
+        
+        local locationDropdown = teleportTab:AddDropdown("Select Teleport", function(selected)
+            fenv.selectedLocation = selected
+        end)
+        
+        for locationName, _ in pairs(islandLocations) do
+            locationDropdown:Add(locationName)
+        end
+        
+        teleportTab:AddButton("Teleport", function()
+            if fenv.selectedLocation and islandLocations[fenv.selectedLocation] then
+                local char = game.Players.LocalPlayer.Character
+                if char and char:FindFirstChild("HumanoidRootPart") then
+                    char.HumanoidRootPart.CFrame = islandLocations[fenv.selectedLocation]
+                end
+            else
+                warn("No location selected.")
+            end
+        end)
+        
+        -- Aba: Rocks
+        local rocksTab = mainWindow:AddTab("Rocks")
+        
+        rocksTab:AddSwitch("Fast Punch (For Fast Glitch)", function(state)
+            local player = game.Players.LocalPlayer
+            warn("Fast Punch feature not implemented")
+        end)
+        
+        rocksTab:AddLabel("--------------")
+        
+        local jungleRockSwitch = rocksTab:AddSwitch("Ancient Jungle Rock", function(state)
+            warn("Ancient Jungle Rock feature not implemented")
+        end)
+        jungleRockSwitch:Set(false)
+        
+        local kingRockSwitch = rocksTab:AddSwitch("Muscle King Rock", function(state)
+            warn("Muscle King Rock feature not implemented")
+        end)
+        kingRockSwitch:Set(false)
+        
+        local legendRockSwitch = rocksTab:AddSwitch("Rock Of Legends", function(state)
+            warn("Rock Of Legends feature not implemented")
+        end)
+        legendRockSwitch:Set(false)
+        
+        local infernoRockSwitch = rocksTab:AddSwitch("Inferno Rock", function(state)
+            warn("Inferno Rock feature not implemented")
+        end)
+        infernoRockSwitch:Set(false)
+        
+        local mysticRockSwitch = rocksTab:AddSwitch("Mystic Rock", function(state)
+            warn("Mystic Rock feature not implemented")
+        end)
+        mysticRockSwitch:Set(false)
+        
+        local frozenRockSwitch = rocksTab:AddSwitch("Frozen Rock", function(state)
+            local char = game.Players.LocalPlayer.Character
+            warn("Frozen Rock feature not implemented")
+        end)
+        frozenRockSwitch:Set(false)
+        
+        local tinyRockSwitch = rocksTab:AddSwitch("Tiny Rock", function(state)
+            warn("Tiny Rock feature not implemented")
+        end)
+        tinyRockSwitch:Set(false)
+        
+        local rocksV2Label = rocksTab:AddLabel("Rocks V2:")
+        rocksV2Label.TextSize = 22
+        
+        local rockTypes = {
+            "Legend Rock",
+            "Eternal Rock",
+            "Muscle King Rock",
+            "Mythical Rock",
+            "Frozen Rock",
+            "Jungle Rock",
+            "Starter Rock",
+            "Tiny Rock",
+            "Legend Beach Rock"
+        }
+        
+        local rockDropdown = rocksTab:AddDropdown("Select Rock", function(selected)
+            fenv.selectedRock = selected
+        end)
+        
+        for _, rockType in ipairs(rockTypes) do
+            rockDropdown:Add(rockType)
+        end
+        
+        rocksTab:AddSwitch("Farm The Rock", function(state)
+            genv.autoFarm = state
+            
+            task.spawn(function()
+                while genv.autoFarm do
+                    -- Código para farmar rochas
+                    task.wait(0.1)
+                end
+            end)
+        end)
+        
+        -- Aba: Farm V1
+        local farmTab = mainWindow:AddTab("FarmV1")
+        genv.working = false
+        
+        -- Localizações de Bench Press
+        local benchPressLocations = {
+            ["Starter Island"] = CFrame.new(-17, 3.3, -2),
+            ["Legend Beach"] = CFrame.new(470, 3.3, -321),
+            ["Frost Gym"] = CFrame.new(-3013, 39, -335),
+            ["Mythical Gym"] = CFrame.new(2371, 39, 1246),
+            ["Eternal Gym"] = CFrame.new(-7176, 45, -1106),
+            ["Legend Gym"] = CFrame.new(4111, 1020, -3799),
+            ["Muscle King Gym"] = CFrame.new(-8590, 46, -6043),
+            ["Jungle Gym"] = CFrame.new(-8173, 64, 1898)
+        }
+        
+        -- Localizações de Squat
+        local squatLocations = {
+            ["Starter Island"] = CFrame.new(-48, 3.3, -11),
+            ["Legend Beach"] = CFrame.new(470, 3.3, -321),
+            ["Frost Gym"] = CFrame.new(-2933, 29, -579),
+            ["Mythical Gym"] = CFrame.new(2489, 3.6, 849),
+            ["Eternal Gym"] = CFrame.new(-7176, 45, -1106),
+            ["Legend Gym"] = CFrame.new(4304, 987, -4124),
+            ["Muscle King Gym"] = CFrame.new(-8940, 13, -5699),
+            ["Jungle Gym"] = CFrame.new(-8352, 34, 2878)
+        }
+        
+        local benchPressDropdown = farmTab:AddDropdown("Select Bench Press Location", function(selected)
+            fenv.selectedBenchPress = selected
+        end)
+        
+        for locationName, _ in pairs(benchPressLocations) do
+            benchPressDropdown:Add(locationName)
+        end
+        
+        local squatDropdown = farmTab:AddDropdown("Select Squat Location", function(selected)
+            fenv.selectedSquat = selected
+        end)
+        
+        for locationName, _ in pairs(squatLocations) do
+            squatDropdown:Add(locationName)
+        end
+        
+        farmTab:AddButton("Teleport Bench Press", function()
+            if fenv.selectedBenchPress and benchPressLocations[fenv.selectedBenchPress] then
+                local char = game.Players.LocalPlayer.Character
+                if char and char:FindFirstChild("HumanoidRootPart") then
+                    char.HumanoidRootPart.CFrame = benchPressLocations[fenv.selectedBenchPress]
+                end
+            end
+        end)
+        
+        farmTab:AddButton("Teleport Squat", function()
+            if fenv.selectedSquat and squatLocations[fenv.selectedSquat] then
+                local char = game.Players.LocalPlayer.Character
+                if char and char:FindFirstChild("HumanoidRootPart") then
+                    char.HumanoidRootPart.CFrame = squatLocations[fenv.selectedSquat]
+                end
+            end
+        end)
+        
+        local separatorLabel = farmTab:AddLabel("----------")
+        separatorLabel.TextSize = 22
+        
+        farmTab:AddTextBox("Enter Rep Speed", function(text)
+            local speed = tonumber(text)
+            if speed then
+                fenv.repSpeed = speed
+            else
+                warn("Invalid number entered.")
+            end
+        end)
+        
+        farmTab:AddSwitch("Start Gaining Strength", function(state)
+            genv.isGrinding = state
+        end)
+        
+        farmTab:AddButton("Anti-Lag", function()
+            local playerGui = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+            local lighting = game:GetService("Lighting")
+            
+            for _, gui in pairs(playerGui:GetChildren()) do
+                if gui:IsA("ScreenGui") and gui.Name ~= "EnchantedHubGUI" then
+                    gui:Destroy()
+                end
+            end
+        end)
+        
+        farmTab:AddLabel("---------------")
+        
+        local teleportService = game:GetService("TeleportService")
+        local teleportLocations = {
+            ["Tiny Island"] = 12728571,
+            ["Main Island"] = 5445928,
+            ["Beach"] = 5671079,
+            ["Muscle King Gym"] = 5151814,
+            ["Jungle Gym"] = 8935557,
+            ["Legends Gym"] = 13801206,
+            ["Infernal Gym"] = 8444845,
+            ["Mythical Gym"] = 757806,
+            ["Frost Gym"] = 8634552,
+            ["Jungle Lift"] = 8734711,
+            ["Jungle Squat"] = 13105194,
+            ["King Lift"] = 5419535,
+            ["King Squat"] = 14118704,
+            ["Legends Lift"] = 5804438,
+            ["Legends Squat"] = 14771079,
+            ["Legends Pull Up"] = 2306988
+        }
+        
+        for locationName, placeId in pairs(teleportLocations) do
+            farmTab:AddButton(locationName, function()
+                teleportService:Teleport(placeId, game.Players.LocalPlayer)
+            end)
+        end
+        
+        local inventoryLabel = farmTab:AddLabel("Inventory Farm:")
+        inventoryLabel.TextSize = 22
+        
+        local autoPushupsSwitch = farmTab:AddSwitch("Auto Pushups", function(state)
+            fenv.isAutoPushups = state
+            local backpack = game.Players.LocalPlayer:FindFirstChild("Backpack")
+            warn("Auto Pushups feature not implemented")
+        end)
+        autoPushupsSwitch:Set(false)
+        
+        local autoSitupsSwitch = farmTab:AddSwitch("Auto Situps", function(state)
+            fenv.isAutoSitups = state
+            local backpack = game.Players.LocalPlayer:FindFirstChild("Backpack")
+            warn("Auto Situps feature not implemented")
+        end)
+        autoSitupsSwitch:Set(false)
+        
+        local autoHandstandsSwitch = farmTab:AddSwitch("Auto Handstands", function(state)
+            fenv.isAutoHandstands = state
+            local backpack = game.Players.LocalPlayer:FindFirstChild("Backpack")
+            warn("Auto Handstands feature not implemented")
+        end)
+        autoHandstandsSwitch:Set(false)
+        
+        local opFarmsLabel = farmTab:AddLabel("OP Farms:")
+        opFarmsLabel.TextSize = 22
+        
+        farmTab:AddSwitch("Fast Punch [ENABLE]", function(state)
+            local player = game.Players.LocalPlayer
+            warn("Fast Punch feature not implemented")
+        end)
+        
+        local junglePushupsSwitch = farmTab:AddSwitch("Auto Fast Pushups & Ancient Jungle Rock", function(state)
+            warn("Auto Fast Pushups & Ancient Jungle Rock feature not implemented")
+        end)
+        junglePushupsSwitch:Set(false)
+        
+        local kingPushupsSwitch = farmTab:AddSwitch("Auto Fast Pushups & Muscle King Rock", function(state)
+            fenv.isAutoPushups = state
+            fenv.musclekingautorock = state
+            local char = game.Players.LocalPlayer.Character
+            warn("Auto Fast Pushups & Muscle King Rock feature not implemented")
+        end)
+        kingPushupsSwitch:Set(false)
+        
+        local eggsLabel = farmTab:AddLabel("Eggs:")
+        eggsLabel.TextSize = 22
+        
+        farmTab:AddSwitch("Eat Egg (30 Min)", function(state)
+            fenv.autoEatEgg = state
+        end)
+        
+        local petsFolder = game:GetService("Players").LocalPlayer:FindFirstChild("petsFolder")
+        
+        farmTab:AddButton("Equip All Swift Samurai", function()
+            if petsFolder then
+                warn("Equip All Swift Samurai feature not implemented")
+            end
+        end)
+        
+        farmTab:AddButton("Equip All Tribal Overlord", function()
+            if petsFolder then
+                warn("Equip All Tribal Overlord feature not implemented")
+            end
+        end)
+        
+        farmTab:AddButton("Equip All Wild Wizard", function()
+            if petsFolder then
+                warn("Equip All Wild Wizard feature not implemented")
+            end
+        end)
+        
+        farmTab:AddButton("Equip All Mighty Monster", function()
+            if petsFolder then
+                warn("Equip All Mighty Monster feature not implemented")
+            end
+        end)
+        
+        -- Subpastas para Farm
+        local jungleFarmFolder = farmTab:AddFolder("Jungle Farm")
+        jungleFarmFolder:AddSwitch("Auto Jungle Bench", function(state)
+            warn("Auto Jungle Bench feature not implemented")
+        end)
+        
+        jungleFarmFolder:AddSwitch("Auto Jungle Bar Lift", function(state)
+            warn("Auto Jungle Bar Lift feature not implemented")
+        end)
+        
+        jungleFarmFolder:AddSwitch("Auto Jungle Squat", function(state)
+            warn("Auto Jungle Squat feature not implemented")
+        end)
+        
+        local kingFarmFolder = farmTab:AddFolder("Muscle King Farm")
+        kingFarmFolder:AddSwitch("Auto Muscle King Lift", function(state)
+            warn("Auto Muscle King Lift feature not implemented")
+        end)
+        
+        kingFarmFolder:AddSwitch("Auto Muscle King Boulder", function(state)
+            warn("Auto Muscle King Boulder feature not implemented")
+        end)
+        
+        local legendFarmFolder = farmTab:AddFolder("Legend Gym Farming")
+        legendFarmFolder:AddSwitch("Auto Legend Lift", function(state)
+            warn("Auto Legend Lift feature not implemented")
+        end)
+        
+        legendFarmFolder:AddSwitch("Auto Legend Press", function(state)
+            warn("Auto Legend Press feature not implemented")
+        end)
+        
+        -- Aba: Pets Hatch
+        local petsTab = mainWindow:AddTab("Pets Hatch")
+        
+        local petList = {
+            "Neon Guardian",
+            "Blue Birdie",
+            "Blue Bunny",
+            "Blue Firecaster",
+            "Blue Phoenix",
+            "Crimson Falcon",
+            "Cybernetic Showdown Dragon",
+            "Dark Golem",
+            "Dark Legends Manticore",
+            "Dark Vampy",
+            "Darkstar Hunter",
+            "Eternal Strike Leviathan",
+            "Frostwave Legends Penguin",
+            "Gold Warrior",
+            "Golden Phoenix",
+            "Golden Viking",
+            "Green Butterfly",
+            "Green Firecaster",
+            "Infernal Dragon",
+            "Lightning Strike Phantom",
+            "Magic Butterfly",
+            "Muscle Sensei",
+            "Orange Hedgehog",
+            "Orange Pegasus",
+            "Phantom Genesis Dragon",
+            "Purple Dragon",
+            "Purple Falcon",
+            "Red Dragon",
+            "Red Firecaster",
+            "Red Kitty",
+            "Silver Dog",
+            "Ultimate Supernova Pegasus",
+            "Ultra Birdie",
+            "White Pegasus",
+            "White Phoenix",
+            "Yellow Butterfly"
+        }
+        
+        local petDropdown = petsTab:AddDropdown("Select Pet", function(selected)
+            fenv.selectedPet = selected
+        end)
+        
+        for _, petName in ipairs(petList) do
+            petDropdown:Add(petName)
+        end
+        
+        petsTab:AddSwitch("Auto Open Pet", function(state)
+            fenv.AutoHatchPet = state
+            warn("Auto Open Pet feature not implemented")
+        end)
+        
+        local auraList = {
+            "Astral Electro",
+            "Azure Tundra",
+            "Blue Aura",
+            "Dark Electro",
+            "Dark Lightning",
+            "Dark Storm",
+            "Electro",
+            "Enchanted Mirage",
+            "Entropic Blast",
+            "Eternal Megastrike",
+            "Grand Supernova",
+            "Green Aura",
+            "Inferno",
+            "Lightning",
+            "Muscle King",
+            "Power Lightning",
+            "Purple Aura",
+            "Purple Nova",
+            "Red Aura",
+            "Supernova",
+            "Ultra Inferno",
+            "Ultra Mirage",
+            "Unstable Mirage",
+            "Yellow Aura"
+        }
+        
+        local auraDropdown = petsTab:AddDropdown("Select Aura", function(selected)
+            fenv.selectedAura = selected
+        end)
+        
+        for _, auraName in ipairs(auraList) do
+            auraDropdown:Add(auraName)
+        end
+        
+        petsTab:AddSwitch("Auto Open Aura", function(state)
+            fenv.AutoHatchAura = state
+            warn("Auto Open Aura feature not implemented")
+        end)
+        
+        petsTab:AddLabel("----------")
+        
+        local crystalList = {
+            "Blue Crystal",
+            "Green Crystal",
+            "Frozen Crystal",
+            "Mythical Crystal",
+            "Inferno Crystal",
+            "Legends Crystal",
+            "Muscle Elite Crystal",
+            "Galaxy Oracle Crystal",
+            "Sky Eclipse Crystal",
+            "Jungle Crystal"
+        }
+        
+        local crystalDropdown = petsTab:AddDropdown("Select Crystal", function(selected)
+            fenv.selectedCrystal = selected
+        end)
+        
+        for _, crystalName in ipairs(crystalList) do
+            crystalDropdown:Add(crystalName)
+        end
+        
+        petsTab:AddSwitch("Auto Open Crystal", function(state)
+            fenv.autoOpenCrystal = state
+            warn("Auto Open Crystal feature not implemented")
+        end)
+        
+        petsTab:AddLabel("----------")
+        
+        petsTab:AddTextBox("Pet Name", function(text)
+            if text:lower() == "neon guardian" then
+                fenv.petToSell = "Neon Guardian"
+            end
+        end)
+        
+        petsTab:AddButton("Sell Pet (Click Everytime To Sell)", function()
+            game:GetService("ReplicatedStorage").rEvents.sellPetEvent:FireServer("sellPet", "Neon Guardian")
+        end)
+        
+        -- Aba: Killing
+        local killingTab = mainWindow:AddTab("Killing")
+        killingTab:Show()
+        
+        local packsLabel = killingTab:AddLabel("Packs:")
+        packsLabel.TextSize = 22
+        
+        killingTab:AddButton("Equip For Damage", function()
+            local petsFolder = game:GetService("Players").LocalPlayer:FindFirstChild("petsFolder")
+            if petsFolder then
+                warn("Equip For Damage feature not implemented")
+            end
+        end)
+        
+        killingTab:AddButton("Equip For Durability", function()
+            local petsFolder = game:GetService("Players").LocalPlayer:FindFirstChild("petsFolder")
+            if petsFolder then
+                warn("Equip For Durability feature not implemented")
+            end
+        end)
+        
+        killingTab:AddLabel("----------")
+        
+        local autoPunchSwitch = killingTab:AddSwitch("Auto Punch", function(state)
+            warn("Auto Punch feature not implemented")
+        end)
+        autoPunchSwitch:Set(false)
+        
+        local fastPunchSwitch = killingTab:AddSwitch("Fast Punch", function(state)
+            local player = game.Players.LocalPlayer
+            local punch = player.Backpack:FindFirstChild("Punch")
+            local char = game.Workspace:FindFirstChild(player.Name)
+            warn("Fast Punch feature not implemented")
+        end)
+        fastPunchSwitch:Set(false)
+        
+        killingTab:AddLabel("---------------")
+        
+        killingTab:AddButton("Server Hop Killing", function()
+            local tweenService = game:GetService("TweenService")
+            local userInputService = game:GetService("UserInputService")
+            local runService = game:GetService("RunService")
+            local teleportService = game:GetService("TeleportService")
+            local httpService = game:GetService("HttpService")
+            
+            local playerGui = game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui")
+            local placeId = game.PlaceId
+            
+            warn("Server Hop Killing feature not implemented")
+        end)
+        
+        fenv.autoKillActive = false
+        
+        local autoKillSwitch = killingTab:AddSwitch("Auto Kill Everyone", function(state)
+            warn("Auto Kill Everyone feature not implemented")
+        end)
+        autoKillSwitch:Set(false)
+        
+        local killMethodDropdown = killingTab:AddDropdown("Select Kill Method", function(selected)
+            fenv.killMethod = selected
+            print("Kill Method set to:", selected)
+        end)
+        killMethodDropdown:Add("Teleport")
+        killMethodDropdown:Add("Non-Teleport")
+        
+        killingTab:AddDropdown("Whitelist Players", function(selected)
+            print("Added to whitelist:", selected)
+        end)
+        
+        -- Adicionar jogadores à lista
+        for _, player in ipairs(game.Players:GetPlayers()) do
+            if player ~= game.Players.LocalPlayer then
+                -- Adicionar jogador à lista
+            end
+        end
+    else
+        warn("Incorrect key!")
+    end
+end)
+
+-- Função para obter chave
+getKeyButton.MouseButton1Click:Connect(function()
+    setclipboard("https://rekonise.com/get-key-of-enchanted-hub-3p3up")
+    warn("Link copied to clipboard!")
+end)
