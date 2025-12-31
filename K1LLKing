@@ -18,7 +18,7 @@ local displayName = player.DisplayName or player.Name
 
 local window = library:AddWindow("Private Kill MCL nubs  | Hello " .. displayName, {
     main_color = Color3.fromRGB(0, 0, 0),
-    min_size = Vector2.new(400, 750),
+    min_size = Vector2.new(400, 870),
     can_resize = false,
 })
 
