@@ -1,17 +1,4 @@
---[[
-    ╔══════════════════════════════════════════════════════════╗
-    ║                 Muscle Legends Companion                 ║
-    ║                    Version: 4.0.0                        ║
-    ║                 Developed by: MyersDev                   ║
-    ║      All rights reserved © 2024 - Professional Edition    ║
-    ╚══════════════════════════════════════════════════════════╝
-]]
-
--- ================================================================
---                          INITIALIZATION
--- ================================================================
-
-local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xccxk/LIBPHEOX/refs/heads/main/BYMYERS", true))()
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/iblameaabis/Ililililililililililililil/refs/heads/main/W%20UI", true))()
 
 local player = game.Players.LocalPlayer
 local displayName = player.DisplayName or player.Name
@@ -36,10 +23,6 @@ local StarterGui = game:GetService("StarterGui")
 
 local LocalPlayer = Players.LocalPlayer
 
--- ================================================================
---                           UTILITIES
--- ================================================================
-
 local function FormatNumber(value)
     local suffixes = {"", "K", "M", "B", "T", "Qa", "Qi"}
     local index = 1
@@ -60,10 +43,6 @@ local function FormatDisplay(value)
     local abbreviated = FormatNumber(value)
     return "[ " .. normal .. " | " .. abbreviated .. " ]"
 end
-
--- ================================================================
---                           AUTO HP BILLBOARD
--- ================================================================
 
 task.spawn(function()
     repeat task.wait() until game:IsLoaded()
@@ -176,10 +155,6 @@ task.spawn(function()
     end)
 end)
 
-
--- ================================================================
---                            TAB: KILLER
--- ================================================================
 
 local Killer = window:AddTab("Kill")
 
