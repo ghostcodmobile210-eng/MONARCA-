@@ -9,10 +9,6 @@ local window = library:AddWindow("Private Kill MCL | Hello " .. displayName, {
     can_resize = false,
 })
 
--- ================================================================
---                          SERVICES
--- ================================================================
-
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Players = game:GetService("Players")
 local Stats = game:GetService("Stats")
