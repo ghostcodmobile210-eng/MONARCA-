@@ -16,7 +16,7 @@ local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xccxk
 local player = game.Players.LocalPlayer
 local displayName = player.DisplayName or player.Name
 
-local window = library:AddWindow("Private Kill MCL nubs  | Hello " .. displayName, {
+local window = library:AddWindow("Private Kill MCL | Hello " .. displayName, {
     main_color = Color3.fromRGB(0, 0, 0),
     min_size = Vector2.new(400, 870),
     can_resize = false,
@@ -198,7 +198,7 @@ followTarget = nil
 godModeToggle = false
 godDamageActive = false
 
-local petSwitch = Killer:AddSwitch("Auto Replace Pets", function(state)
+local petSwitch = Killer:AddSwitch("Auto Remplazar Pets💱", function(state)
     _G.AutoCyclePetsActive = state
     
     if state then
@@ -275,7 +275,7 @@ local petSwitch = Killer:AddSwitch("Auto Replace Pets", function(state)
 end)
 
 -- Pet Selection
-Killer:AddLabel("Select damage or durability pet").TextSize = 18
+Killer:AddLabel("Selección daño o durabilidad pet").TextSize = 18
 
 local dropdown = Killer:AddDropdown("Select Pet", function(text)
     local petsFolder = LocalPlayer.petsFolder
@@ -371,7 +371,7 @@ end)
 -- Whitelist System
 local friendWhitelistActive = false
 
-Killer:AddSwitch("Auto Whitelist Friends", function(state)
+Killer:AddSwitch("Auto Lista Blanca Amigos", function(state)
     friendWhitelistActive = state
 
     if state then
@@ -411,7 +411,7 @@ Killer:AddTextBox("UnWhitelist", function(text)
 end)
 
 -- Auto Kill
-Killer:AddSwitch("Auto Kill", function(bool)
+Killer:AddSwitch("Auto Kill 👹", function(bool)
     autoKill = bool
 
     task.spawn(function()
@@ -451,7 +451,7 @@ end)
 local selectedTarget = nil
 local targetDropdownItems = {}
 
-local targetDropdown = Killer:AddDropdown("Select Target", function(displayName)
+local targetDropdown = Killer:AddDropdown("Seleccionar objetivo 💀", function(displayName)
     for _, player in ipairs(Players:GetPlayers()) do
         if player.DisplayName == displayName then
             if not table.find(targetPlayerNames, player.Name) then
@@ -547,7 +547,7 @@ end)
 local spyTargetDropdownItems = {}
 local targetPlayerName = nil
 
-local spyTargetDropdown = Killer:AddDropdown("Select View Target", function(displayName)
+local spyTargetDropdown = Killer:AddDropdown("Select Ver objetivo 👁️", function(displayName)
     for _, player in ipairs(Players:GetPlayers()) do
         if player.DisplayName == displayName then
             targetPlayerName = player.Name
@@ -625,7 +625,7 @@ local function setupAnimationBlocking()
     end
 end
 
-Killer:AddButton("Remove Punch Anim", function()
+Killer:AddButton("Remover animación de puño", function()
     setupAnimationBlocking()
 end)
 
@@ -636,7 +636,7 @@ function RecoveryPunch()
     end
 end
 
-Killer:AddButton("Recover Punch Anim", function()
+Killer:AddButton("Devolver animación de puño", function()
     RecoveryPunch()
 end)
 
@@ -654,7 +654,7 @@ Killer:AddSwitch("Auto Equip Punch", function(state)
     end)
 end)
 
-Killer:AddSwitch("Auto Punch [Without Animation]", function(state)
+Killer:AddSwitch("Auto Puño [Sin animación]", function(state)
     autoPunchNoAnim = state
     task.spawn(function()
         while autoPunchNoAnim do
@@ -705,7 +705,7 @@ Killer:AddSwitch("Auto Punch", function(state)
     end
 end)
 
-Killer:AddSwitch("Fast Punch", function(state)
+Killer:AddSwitch("Puño rápido", function(state)
     _G.autoPunchActive = state
     if state then
         task.spawn(function()
@@ -810,7 +810,7 @@ Killer:AddButton("GODMODE Tiny island (Button)", function()
 end)
 
 -- God Mode
-Killer:AddSwitch("GOD MODE Brawl", function(State)
+Killer:AddSwitch("GOD MODE Peleas", function(State)
     godModeToggle = State
     if State then
         task.spawn(function()
@@ -994,12 +994,12 @@ Killer:AddButton("Freeze the Water", function()
 end)
 
 -- Size NaN Button
-Killer:AddButton("Size NaN", function()
+Killer:AddButton("Tamaño mínimo", function()
     ReplicatedStorage.rEvents.changeSpeedSizeRemote:InvokeServer("changeSize", 0/0)
 end)
 
 -- Dead Hit Activation
-Killer:AddButton("Activate Dead Hit", function()
+Killer:AddButton("Activación pegar muerto 🥀", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/xccxk/MAIN/refs/heads/main/1-2-3-ALL-STEPS"))()
 end)
 
@@ -1187,7 +1187,7 @@ Misc:AddButton("Anti Afk", function(bool)
     end
 end, true)
 
-local switch = Misc:AddSwitch("Lock Position", function(Value)
+local switch = Misc:AddSwitch("Posición bloqueada 🚫", function(Value)
     if Value then
         
         local currentPos = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
@@ -1205,7 +1205,7 @@ local switch = Misc:AddSwitch("Lock Position", function(Value)
     end
 end)
 
-Misc:AddSwitch("Anti Knockback", function(Value)
+Misc:AddSwitch("Anti Rechazo", function(Value)
     if Value then
         local playerName = game.Players.LocalPlayer.Name
         local rootPart = game.Workspace:FindFirstChild(playerName):FindFirstChild("HumanoidRootPart")
@@ -1431,5 +1431,5 @@ local Credits = window:AddTab("Credits")
 Credits:AddLabel("Professional Edition")
 Credits:AddLabel("Script  by:")
 Credits:AddLabel("MyersDev👑")
-Credits:AddLabel("KING KILL")
+Credits:AddLabel("NOTM3RCY")
 Credits:AddLabel("MONARCA🤴🏻")
